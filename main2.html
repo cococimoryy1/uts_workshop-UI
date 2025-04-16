@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soléa Flowers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f3f3f3;
+    }
+    header {
+      background-color: #ffffff;
+      color: #680000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #680000;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .logo {
+      text-align: center;
+      flex-grow: 1;
+      font-size: 24px;
+      font-weight: 700;
+      color: #680000;
+    }
+    .cta-button {
+      background-color: #680000;
+      color: white;
+      width: 140px;
+      height: 40px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    @media (max-width: 767px) {
+      header {
+        display: flex;
+        flex-direction: row; /* pastikan baris */
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap; /* penting agar tidak turun */
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+      }
+      .logo {
+        font-size: 14px;
+        flex: 0 1 auto;
+        white-space: nowrap;
+        order: 0; /* pastikan urutannya tetap */
+      }
+      .nav-links {
+        display: flex;
+        flex-direction: row;
+        gap: 0.3rem;
+        flex: 1 1 auto;
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+      .nav-links a {
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .cta-button {
+        font-size: 12px;
+        width: auto;
+        padding: 0.3rem 0.6rem;
+        flex: 0 1 auto;
+        white-space: nowrap;
+      }
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-color: #eeeeee;
+      max-width: 1440px;
+      min-height: 700px; /* ✅ tambahin ini */
+      margin: 0 auto;
+    }
+    .hero-text {
+      max-width: 500px;
+      margin-right: 2rem;
+    }
+    .hero-text h1 {
+      font-size: 56px;
+      color: #680000;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .hero-text p {
+      font-size: 20px;
+      margin-bottom: 1.5rem;
+      color: #333;
+      font-weight: 400;
+    }
+    .hero-text .start-button {
+      background-color: #680000;
+      color: white;
+      width: 200px;
+      height: 60px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .hero-img {
+      width: 670px;
+      height: 480px;
+      max-width: 100%;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    /* ✅ Responsif iPad dan tablet */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 44px;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+  }
+
+  .hero-text .start-button {
+    width: 180px;
+    height: 55px;
+    font-size: 16px;
+  }
+
+  .hero-img {
+    max-width: 50%;    /* ubah dari 100% ke 90% */
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-img img {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin: 0;
+    max-width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-text .start-button {
+    width: 140px;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .hero-img {
+    width: 50%;
+    max-width: 360px;
+    height: auto;
+  }
+
+  .hero-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+
+    .publication {
+      background-color: #680000;
+      color: #ffffff;
+      width: 100%;
+      max-width: 1440px;
+      height: 379px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      position: relative;
+    }
+    /* Teks dan tombol tetap pakai posisi fix di desktop */
+    .publication p {
+      width: 619px;
+      height: 57px;
+      font-size: 20px;
+      line-height: 1.4;
+      margin: 0 auto;
+      position: absolute;
+      top: 130px;
+      left: 411px;
+    }
+    .publication .buttons {
+      display: flex;
+      gap: 77px;
+      width: 908px;
+      height: 40px;
+      position: absolute;
+      top: 267px;
+      left: 266px;
+      justify-content: center;
+    }
+    .publication .buttons button {
+      width: 120px;
+      height: 40px;
+      background-color: #FFFFFF;
+      border: none;
+      cursor: pointer;
+    }
+    /* Responsif */
+      @media (max-width: 768px) {
+      .publication {
+        height: auto;
+        padding: 30px 16px;
+        box-sizing: border-box;
+        overflow-x: hidden; /* Cegah overflow horizontal */
+      }
+      .publication p {
+        position: static;
+        width: 100%;
+        max-width: 250px;   /* batasi lebar maksimal */
+        height: auto;
+        font-size: 10px; /* KECILKAN di sini */
+        margin:  0 auto;
+        line-height: 1.4;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .publication h2 {
+        font-size: 17px; /* Kalau pakai heading di atasnya */
+        margin-bottom: 10px;
+      }
+      .publication .buttons {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .publication .buttons button {
+        width: 15%;
+        min-width: 60px;
+        max-width: 90px;
+        height: 28px;
+        font-size: 11px;
+        padding: 4px 8px;
+      }
+    }
+    /* Mobile Landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  .publication {
+          display: flex;
+          flex-direction: column;
+          align-items: center; /* Tengahin isi secara horizontal */
+          text-align: center;  /* Tengahin teks <p> dan <h2> */
+          padding: 20px 16px;
+          overflow: hidden; /* cegah overflow keluar div */
+          box-sizing: border-box;
+          
+        }
+        .publication p {
+          font-size: 13px;
+          max-width: 40%;
+          width: 100%;
+          padding: 0 20px;
+          margin-bottom: 20px;
+          box-sizing: border-box;
+          line-height: 1.6;
+        }
+        .publication .buttons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+          max-width: 320px;  /* batasi biar gak melebihi layar */
+        }
+        .publication .buttons button {
+          flex: 1 1 20%;
+          min-width: 60px;
+          max-width: 90px;
+          font-size: 10px;
+          padding: 4px 10px;
+        }
+      }
+    @media (max-width: 1024px) and (orientation: portrait) {
+          .publication {
+            height: auto;
+            padding: 30px 16px;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Cegah overflow horizontal */
+          }
+          .publication p {
+            position: static;
+            width: 100%;
+            max-width: 250px;   /* batasi lebar maksimal */
+            height: auto;
+            font-size: 10px; /* KECILKAN di sini */
+            margin:  0 auto;
+            line-height: 1.4;
+            text-align: center;
+            box-sizing: border-box;
+          }
+          .publication h2 {
+            font-size: 17px; /* Kalau pakai heading di atasnya */
+            margin-bottom: 10px;
+          }
+          .publication .buttons {
+            position: static;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+          }
+          .publication .buttons button {
+            width: 15%;
+            min-width: 60px;
+            max-width: 90px;
+            height: 28px;
+            font-size: 11px;
+            padding: 4px 8px;
+          }
+        }
+    @media (max-width: 1024px) and (orientation: landscape) {
+        .publication {
+          display: flex;
+          flex-direction: column;
+          align-items: center; /* Tengahin isi secara horizontal */
+          text-align: center;  /* Tengahin teks <p> dan <h2> */
+          padding: 20px 16px;
+          overflow: hidden; /* cegah overflow keluar div */
+          box-sizing: border-box;
+        }
+        .publication p {
+          font-size: 13px;
+          max-width: 40%;
+          width: 100%;
+          padding: 0 20px;
+          margin-bottom: 20px;
+          box-sizing: border-box;
+          line-height: 1.6;
+        }
+        .publication .buttons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+          max-width: 320px;  /* batasi biar gak melebihi layar */
+        }
+        .publication .buttons button {
+          flex: 1 1 20%;
+          min-width: 60px;
+          max-width: 90px;
+          font-size: 10px;
+          padding: 4px 10px;
+        }
+      }
+    .feature {
+        background-color: #f4f4f4;
+        padding: 0; /* karena kita pakai margin spesifik */
+        width: 1440px;
+        height: 600px;
+        margin: 143px auto 0 auto; /* auto untuk center horizontal */
+        margin-top: 143px;
+        color: #340000;
+        font-family: 'Roboto', sans-serif;
+    }
+    .feature-content {
+        width: 900px; /* atau 60%, bisa disesuaikan */
+        margin-left: 143px; /* geser dari kiri */
+        padding: 32px;
+        border-radius: 8px; /* opsional */
+            }
+    .feature h3 {
+        font-size: 20pt;
+        font-weight: 700;
+        line-height: 140.6%;
+        margin: 0 0 24px 32px; /* 232 - 200 = 32px left margin */
+        color: #340000;
+    }
+    .feature p {
+        font-size: 20pt;
+        font-weight: 400;
+        line-height: 140.6%;
+        margin: 0 0 42px 35px; /* 235 - 200 = 35px left margin */
+        max-width: 422px;
+        color: #340000;
+    }
+    .feature ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin-left: 0;
+        margin-top: 0;
+        font-size: 20pt;
+        font-weight: 400;
+        line-height: 140.6%;
+        color: #340000;
+    }
+    .feature ul li {
+        margin-bottom: 24px;
+    }
+          /* Tablet (iPad) */
+      @media (max-width: 1024px) {
+        .feature {
+          width: 100%;
+          height: auto;
+          padding: 40px 24px;
+          margin: 80px auto 0 auto;
+        }
+
+        .feature-content {
+          width: 90%;
+          margin: 0 auto;
+          padding: 24px;
+        }
+
+        .feature h3,
+        .feature p {
+          margin-left: 0;
+        }
+
+        .feature h3 {
+          font-size: 18pt;
+          text-align: center;
+        }
+
+        .feature p {
+          font-size: 16pt;
+          max-width: 100%;
+          text-align: center;
+        }
+
+        .feature ul {
+          padding-left: 24px;
+          font-size: 16pt;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .feature {
+          padding: 20px 12px;
+          height: auto;
+        }
+
+        .feature-content {
+          width: 100%;
+          padding: 8px 16px; /* tambah padding kiri & kanan */
+          margin-left: 0;
+        }
+
+        .feature h3 {
+          font-size: 16px;  /* kecilin judul */
+          text-align: left;         /* biar rata kiri */
+          margin-left: 0;
+          padding-left: 25px; /* tambah jarak dari kiri */
+        }
+
+        .feature p {
+          font-size: 14px;  /* kecilin paragraf */
+          line-height: 1.5;
+          text-align: left;         /* biar rata kiri */
+          margin: 12px 0;
+          padding-left: 25px;
+        }
+
+        .feature ul {
+          font-size: 14px;  /* kecilin list */
+          line-height: 1.5;
+          padding-left: 20px;
+          text-align: left;
+        }
+
+        .feature ul li {
+          margin-bottom: 12px;
+        }
+      }
+    .feature-2 {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1440px;
+        height: auto;
+        min-height: 600px;
+        font-family: 'Roboto', sans-serif;
+        margin: 0 auto;
+    }
+    .feature-2-left {
+        width: 720px;
+        height: 600px;
+        background-color: #6b0000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .image-container {
+        width: 320px;
+        height: 360px;
+    }
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .feature-2-right {
+        width: 720px;
+        height: 600px;
+        background-color: #f9f6f6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        color: #340000;
+    }
+    .feature-2-right h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+        .feature-2-right p {
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        line-height: 1.4;
+        max-width: 422px;
+    }
+    .feature-2-right button {
+        width: 200px;
+        height: 60px;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+        background-color: transparent;
+        color: #340000;
+        border: 1px solid #340000;
+        border-radius: 4px;
+        cursor: pointer;
+     }
+    .feature-2-right button:hover {
+        background-color: #340000;
+        color: #fff;
+    }
+    .feature-3 {
+      width: 1440px;
+      height: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      background-color: #f9f9f9;
+    }
+
+    .feature-3 .text-section {
+      width: 50%;
+    }
+
+    .feature-3 h2 {
+      font-size: 32px;
+      font-weight: 400;
+      color: #730000;
+      margin-bottom: 24px;
+    }
+
+    .feature-3 .desc-18 {
+      font-size: 18px;
+      font-weight: 400;
+      color: #730000;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .feature-3 .desc-14 {
+      font-size: 14px;
+      font-weight: 400;
+      color: #888;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .feature-3 .author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-3 .author .dot {
+      width: 24px;
+      height: 24px;
+      background-color: #730000;
+      border-radius: 50%;
+    }
+
+    .feature-3 .author span {
+      font-size: 14px;
+      color: #730000;
+      font-weight: 400;
+    }
+
+    .feature-3 .image-section {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .feature-3 .image-section .bg-box {
+      width: 340px;
+      height: 200px;
+      background-color: #a85a5a;
+      position: absolute;
+      top: 40px;
+      left: 60px;
+      z-index: 1;
+    }
+    .feature-3 .image-section img {
+      width: 400px;
+      height: auto;
+      object-fit: cover;
+      z-index: 2;
+      position: relative;
+    }
+    /* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .feature-3 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 24px;
+    height: auto;
+    width: 100%;
+  }
+
+  .feature-3 .text-section,
+  .feature-3 .image-section {
+    width: 100%;
+  }
+
+  .feature-3 .image-section {
+    margin-top: 32px;
+    justify-content: center;
+  }
+
+  .feature-3 h2 {
+    font-size: 28px;
+  }
+
+  .feature-3 .desc-18 {
+    font-size: 16px;
+  }
+
+  .feature-3 .desc-14 {
+    font-size: 13px;
+  }
+
+  .feature-3 .author span {
+    font-size: 13px;
+  }
+
+  .feature-3 .image-section .bg-box {
+    width: 280px;
+    height: 160px;
+    top: 30px;
+    left: 40px;
+  }
+
+  .feature-3 .image-section img {
+    width: 320px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .feature-3 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 16px;
+    width: 100%;
+    height: auto;
+  }
+
+  .feature-3 h2 {
+    font-size: 22px;
+  }
+
+  .feature-3 .desc-18 {
+    font-size: 14px;
+  }
+
+  .feature-3 .desc-14 {
+    font-size: 12px;
+  }
+
+  .feature-3 .author span {
+    font-size: 12px;
+  }
+
+  .feature-3 .image-section {
+    margin-top: 24px;
+  }
+
+  .feature-3 .image-section .bg-box {
+    width: 200px;
+    height: 120px;
+    top: 20px;
+    left: 30px;
+  }
+
+  .feature-3 .image-section img {
+    width: 240px;
+  }
+}
+
+    .testimonial-section {
+      width: 1440px;
+      height: 400px;
+      background-color: #700000;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      margin: 0 auto;
+
+    }
+    .testimonial-text {
+      font-size: 24px;
+      font-weight: normal;
+      text-align: center;
+      max-width: 960px;
+      position: absolute;
+      top: 132px;
+    }
+    .testimonial-author {
+      font-size: 14px;
+      position: absolute;
+      top: 268px;
+      color: white;
+    }
+    .circle {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 204px;
+    }
+      /* Tablet: max-width 1024px */
+    @media (max-width: 1024px) {
+      .testimonial-section {
+        width: 100%;
+        height: auto;
+        padding: 60px 20px;
+        position: relative;
+      }
+
+      .testimonial-text {
+        position: static;
+        font-size: 20px;
+        max-width: 90%;
+        margin: 0 auto 20px auto;
+      }
+
+      .testimonial-author {
+        position: static;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .circle {
+        position: static;
+        width: 32px;
+        height: 32px;
+        margin: 0 auto 20px auto;
+      }
+    }
+
+    /* Mobile: max-width 768px */
+    @media (max-width: 768px) {
+      .testimonial-section {
+        width: 100%;
+        height: auto;
+        padding: 48px 16px;
+      }
+
+      .testimonial-text {
+        font-size: 18px;
+      }
+
+      .testimonial-author {
+        font-size: 12px;
+      }
+
+      .circle {
+        width: 28px;
+        height: 28px;
+      }
+    }
+    .card-section {
+        max-width: 1440px;
+        width: 100%;
+        padding: 70px 20px 0;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #f7f7f7;
+    }
+    .card-section h2 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 54px;
+        color: #700000;
+    }
+    .card-section p.description {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 auto 64px;
+        max-width: 900px;
+        color: #700000;
+    }
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 48px;
+    }
+    .card {
+        width: 370px;
+        height: 502px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-img {
+        width: 370px;
+        height: 370px;
+        overflow: hidden;
+    }
+    .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .card-title {
+        font-size: 24px;
+        font-weight: 400;
+        color: #700000;
+        margin: 16px 0 8px;
+        text-align: left;
+    }
+    .card-link {
+        font-size: 14px;
+        font-weight: 400;
+        color: #700000;
+        text-decoration: none;
+        text-align: left;
+    }
+        @media (max-width: 768px) {
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .card-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-img img {
+        height: auto;
+    }
+
+    .card-title,
+    .card-link {
+        text-align: center;
+    }
+    }
+    .footer-section {
+      width: 1440px;
+      height: 380px;
+      background-color: #700000;
+      color: white;
+      display: flex;
+      padding-top: 59px;
+      font-family: 'Roboto', sans-serif;
+      position: relative;
+      margin: 0 auto; /* Ini bikin divnya ditengah */
+    }
+    .footer-left {
+      width: 50%;
+      padding-left: 135px;
+    }
+    .footer-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 9px 0;
+    }
+    .footer-top-row {
+      display: flex;
+      align-items: center;
+      gap: 84px; /* dari perhitungan (295 - 135 - 76) */
+    }
+
+  .footer-blog {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .footer-heading {
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 13px;
+    margin-left: 160px;
+  }
+
+  .footer-paragraph {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 17px;
+    margin-left: 160px;
+    max-width: 370px;
+    line-height: 1.5;
+  }
+
+  .footer-divider {
+    width: 1px;
+    height: 320px;
+    background-color: white;
+    position: absolute;
+    left: 720px;
+    top: 30px;
+  }
+
+  .footer-right {
+    width: 50%;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 48px;
+    padding-top: 10px;
+  }
+
+  .footer-subheading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+     margin-top: 0px; /* Naikin dikit */
+    margin-bottom: 33px; /* Jarak ke item pertama */
+  }
+
+  .footer-link-item,
+.footer-company-item {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 8px 0; /* Bisa disesuaikan */
+}
+
+  .footer-bottom {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: auto;
+    padding-bottom: 20px;
+  }
+  /* Tablet dan bawah */
+@media (max-width: 1024px) {
+  .footer-section {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 40px 20px;
+    width: 100%;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    padding: 0;
+  }
+
+  .footer-left {
+    padding: 0 16px;
+    margin-bottom: 40px;
+  }
+
+  .footer-heading,
+  .footer-paragraph {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .footer-top-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .footer-right {
+    padding: 0 16px;
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .footer-subheading {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .footer-link-item,
+  .footer-company-item {
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+}
+
+/* Mobile lebih kecil */
+@media (max-width: 600px) {
+  .footer-title {
+    font-size: 20px;
+  }
+
+  .footer-heading {
+    font-size: 20px;
+  }
+
+  .footer-paragraph {
+    font-size: 13px;
+  }
+
+  .footer-subheading {
+    font-size: 15px;
+  }
+
+  .footer-link-item,
+  .footer-company-item,
+  .footer-bottom {
+    font-size: 13px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-links">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+      <a href="#">Link 4</a>
+    </div>
+    <div class="logo">SOLÉA FLOWERS</div>
+    <button class="cta-button">LOREM</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Welcome To<br>Soléa Flowers</h1>
+      <p>Temukan keindahan bunga yang dirangkai dengan cinta dan sentuhan profesional. Cocok untuk setiap momen spesial dalam hidup.</p>
+      <button class="start-button">Mulai</button>
+    </div>
+    <div class="hero-img">
+      <img src="https://i.pinimg.com/736x/b6/90/d5/b690d5afdec9b8c21d460c93dab0cfdc.jpg" alt="Gambar bunga Soléa Flowers">
+    </div>
+  </section>
+  <section class="publication">
+    <div class="pub-wrapper">
+      <h2>The Publication</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <div class="buttons">
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+        <button>Button 4</button>
+        <button>Button 5</button>
+      </div>
+    </div>
+  </section>
+  
+
+  <div class="feature">
+    <div class="feature-content">
+      <h3>Feature that is amazing</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <ul>
+        <li>Benefit of Feature</li>
+        <li>Benefit of Feature</li>
+        <li>Benefit of Feature</li>
+      </ul>
+    </div>
+  </div>  
+  <section class="feature-2">
+    <div class="feature-2-left">
+      <div class="image-container">
+        <img src="https://i.pinimg.com/236x/a7/7a/5d/a77a5d18ffeb7b6844af948b504c73d3.jpg" alt="Lily">
+      </div>
+    </div>
+    <div class="feature-2-right">
+      <h3>Filosofi Lily</h3>
+      <p>Melambangkan kemurnian, harapan baru, dan cinta yang tak lekang oleh waktu.</p>
+      <button>Learn More</button>
+    </div>
+  </section>
+  <section class="feature-3">
+    <div class="text-section">
+      <h2>Your Best Value Proposition</h2>
+      <p class="desc-18">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <p class="desc-14">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <div class="author">
+        <div class="dot"></div>
+        <span>Dhaka Oke, Product Designer</span>
+      </div>
+    </div>
+    <div class="image-section">
+      <div class="bg-box"></div>
+      <img src="https://i.pinimg.com/736x/4f/6d/f0/4f6df06782d8c0106e5663d5b10b81cb.jpg" alt="Bunga">
+    </div>
+  </section>
+  <div class="testimonial-section">
+    <div class="testimonial-text">
+      “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.”
+    </div>
+    <div class="circle"></div>
+    <div class="testimonial-author">Maria Lopez, VP of Design at Meshery</div>
+  </div>
+  <section class="card-section">
+    <h2>Your Best Value Proposition</h2>
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    </p>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-img">
+          <img src="https://i.pinimg.com/736x/8b/be/23/8bbe231f859a4f353a43ebbd94714db6.jpg" alt="Flower 1">
+        </div>
+        <div class="card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+        <a href="#" class="card-link">Learn More</a>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://i.pinimg.com/474x/69/7f/ab/697fab2a0a2f1dac3672d22004616cb4.jpg" alt="Flower 2">
+        </div>
+        <div class="card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+        <a href="#" class="card-link">Learn More</a>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://i.pinimg.com/474x/ae/1c/bb/ae1cbb413ce96572c5679a918d18049d.jpg" alt="Flower 3">
+        </div>
+        <div class="card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+        <a href="#" class="card-link">Learn More</a>
+      </div>
+    </div>
+  </section>
+  <section class="footer-section">
+   <div class="footer-left">
+    <div class="footer-top-row">
+      <h2 class="footer-title">TRADE</h2>
+      <h3 class="footer-blog">Latest Blog Post</h3>
+    </div>
+    <h4 class="footer-heading">Ready to get started?</h4>
+    <p class="footer-paragraph">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+  </div>
+
+    <div class="footer-divider"></div>
+  
+    <div class="footer-right">
+      <div class="footer-links">
+        <div>
+          <h5 class="footer-subheading">Product</h5>
+          <p>Product</p>
+          <p>Product</p>
+          <p>Product</p>
+          <p>Product</p>
+          <p>Product</p>
+        </div>
+        <div>
+          <h5 class="footer-subheading">Company</h5>
+          <p>Company</p>
+          <p>Company</p>
+          <p>Company</p>
+          <p>Company</p>
+          <p>Company</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2010 — 2020</span>
+        <span>Privacy — Terms</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
